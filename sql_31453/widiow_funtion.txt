@@ -1,0 +1,143 @@
+SELECT 
+    CustomerID, 
+    Quantity, 
+    ROW_NUMBER() OVER (ORDER BY Quantity DESC) AS Row_Num
+FROM Orders;
+
+
+SELECT
+CustomerID,
+Quantity,
+RANK() OVER(ORDER BY Quantity DESC) AS Ranking
+FROM Orders;
+
+
+SELECT
+CustomerID,
+Quantity,
+DENSE_RANK() OVER(ORDER BY Quantity DESC) AS DenseRanking
+FROM Orders;
+
+
+SELECT
+CustomerID,
+Quantity,
+PERCENT_RANK() OVER(ORDER BY Quantity) AS PercentRank
+FROM Orders;
+
+
+
+
+SELECT
+OrderID,
+Quantity,
+AVG(Quantity) OVER() AS AverageSales
+FROM Orders;
+
+
+SELECT
+OrderID,
+Quantity,
+SUM(Quantity) OVER() AS TotalSales
+FROM Orders;
+
+
+
+SELECT
+OrderID,
+Quantity,
+MIN(Quantity) OVER() AS MinimumSale
+FROM Orders;
+
+
+
+
+SELECT
+OrderID,
+Quantity,
+MAX(Quantity) OVER() AS MaximumSale
+FROM Orders;
+
+
+
+
+SELECT
+OrderDate,
+Quantity,
+LAG(Quantity) OVER(ORDER BY OrderDate) PreviousSale
+FROM Orders;
+
+
+
+
+
+SELECT
+OrderDate,
+Quantity,
+LEAD(Quantity) OVER(ORDER BY OrderDate) NextSale
+FROM Orders;
+
+
+
+
+
+
+
+
+
+SELECT
+CustomerID,
+Quantity,
+NTILE(4) OVER(ORDER BY Quantity DESC) Quartile
+FROM Orders;
+
+
+
+
+
+SELECT
+CustomerID,
+Quantity,
+CUME_DIST() OVER(ORDER BY Quantity) Distribution
+FROM Orders;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
